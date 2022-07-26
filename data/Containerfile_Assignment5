@@ -1,0 +1,7 @@
+FROM fedora
+RUN dnf -yqq install httpd
+EXPOSE 80
+VOLUME /var/www/html/data
+CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
+# ENTRYPOINT ["/usr/sbin/httpd","-D","FOREGROUND"]
+
