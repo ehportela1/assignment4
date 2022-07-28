@@ -1,0 +1,15 @@
+FROM fedora:latest as baseimage
+RUN dnf -qqy update \
+	&& dnf -qqy install httpd
+EXPOSE 80
+ENTRYPOINT /usr/sbin/httpd -D FOREGROUND
+
+FROM baseimage as website1
+LABEL website=1
+ADD website1.html /var/www/html/
+
+FROM baseimage as website2
+LABEL website=2
+ADD website2.html /var/www/html/
+
+
