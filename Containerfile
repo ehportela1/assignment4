@@ -4,3 +4,5 @@ RUN dnf -y update \
 EXPOSE 80
 ADD my-info.html /var/www/html/data/
 ENTRYPOINT /usr/sbin/httpd -D FOREGROUND
+
+
